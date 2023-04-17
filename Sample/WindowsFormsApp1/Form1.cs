@@ -31,6 +31,9 @@ namespace WindowsFormsApp1 {
                 
             }
             tbResult.Text = ans.ToString();
+
+            //double result = Math.Pow((double)nubX.Value, (double)nubY.Value);
+            //tbResult.Text = result.ToString();
         }
     }
 }
