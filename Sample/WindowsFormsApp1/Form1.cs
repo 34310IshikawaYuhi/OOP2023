@@ -22,7 +22,15 @@ namespace WindowsFormsApp1 {
             int sum = num1 + num2;
             tbAns.Text = sum.ToString();
         }
-
-
+        //イベントハンドラ
+        private void btPow_Click(object sender, EventArgs e) {
+            decimal ans = nubX.Value;
+            for (int i = 0; i < (nubY.Value-1); i++)
+            {
+               ans = Decimal.Multiply(ans,nubX.Value);
+                
+            }
+            tbResult.Text = ans.ToString();
+        }
     }
 }
