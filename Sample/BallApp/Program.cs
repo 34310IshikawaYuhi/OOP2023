@@ -10,8 +10,6 @@ namespace BallApp {
     class Program :Form {
 
         private Timer moveTimer; //タイマー用
-        private SoccerBall soccerBall;
-        private TennisBall tennisBall;
         private PictureBox pb;  //画像を表示するコントロール
         int Ballcnt = 0;
 
@@ -25,48 +23,44 @@ namespace BallApp {
             this.Size = new Size(800, 600);
             this.BackColor = Color.Aqua;
             this.MouseClick += Program_MouseClick;
+            this.KeyDown += Program_KeyDown;
 
             moveTimer = new Timer();
             moveTimer.Interval = 1;//タイマーのインターバル(ms)
             moveTimer.Tick += MoveTimer_Tick; //デリゲート登録
         }
+        //キーが押された時のイベントハンドラ
+        private void Program_KeyDown(object sender, KeyEventArgs e) {
+            
+        }
+
         //マウスクリック時のイベントハンドラー
         private void Program_MouseClick(object sender, MouseEventArgs e) {
-            if (e.Button == MouseButtons.Right)
-            {
-                tennisBall = new TennisBall(e.X - 25, e.Y - 25);
-                pb = new PictureBox();
-                pb.Image = tennisBall.Image;
-                pb.Location = new Point((int)tennisBall.PosX, (int)tennisBall.PosY);    // 画像の位置
-                pb.Size = new Size(25, 25); //画像の表示サイズ
-                pb.SizeMode = PictureBoxSizeMode.StretchImage;  //画像の表示モード
-                pb.Parent = this;
+            Obj ballObj = null;
+            pb = new PictureBox();
 
-                balls.Add(tennisBall);
-                pbs.Add(pb);
-
-                moveTimer.Start();//タイマースタート
-            }
-            else
+            if (e.Button == MouseButtons.Left)
             {
-                //ボールインスタンス生成
-                soccerBall = new SoccerBall(e.X - 25, e.Y - 25);
-                pb = new PictureBox();
-                pb.Image = soccerBall.Image;
-                pb.Location = new Point((int)soccerBall.PosX, (int)soccerBall.PosY);    // 画像の位置
+                ballObj = new SoccerBall(e.X - 25, e.Y - 25);
                 pb.Size = new Size(50, 50); //画像の表示サイズ
-                pb.SizeMode = PictureBoxSizeMode.StretchImage;  //画像の表示モード
-                pb.Parent = this;
-
-                balls.Add(soccerBall);
-                pbs.Add(pb);
-
-                moveTimer.Start();//タイマースタート
-
-                this.Text = "ボールの数:" + (Ballcnt + 1);
-                Ballcnt++;
+               
             }
-           
+            else if(e.Button == MouseButtons.Right)
+            {
+                ballObj = new TennisBall(e.X - 25, e.Y - 25);
+                pb.Size = new Size(25, 25); //画像の表示サイズ
+               
+            }
+
+            pb.Image = ballObj.Image;
+            pb.Location = new Point((int)ballObj.PosX, (int)ballObj.PosY);    // 画像の位置 
+            pb.SizeMode = PictureBoxSizeMode.StretchImage;  //画像の表示モード
+            pb.Parent = this;
+
+            balls.Add(ballObj);
+            pbs.Add(pb);
+
+            moveTimer.Start();//タイマースタート
         }
         //タイマータイムアウト時のイベントハンドラー
         private void MoveTimer_Tick(object sender, EventArgs e) {
