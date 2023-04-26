@@ -9,6 +9,7 @@ namespace BallApp {
     class SoccerBall :Obj{
 
         //フィールド
+        private static int Count = 0;
         Random rnd = new Random();//乱数生成
         
         //コンストラクタ
@@ -19,8 +20,11 @@ namespace BallApp {
             int rndY = rnd.Next(-20, 20);
             MoveX = (rndX != 0 ? rndX : 10);//乱数で移動量を設定
             MoveY = (rndY != 0 ? rndY : -10);//乱数で移動量を設定
+            Count++;
         }
-        
+
+        public static int Count1 { get => Count; set => Count = value; }
+
         //メソッド
         public override void Move() {
 
@@ -36,5 +40,6 @@ namespace BallApp {
             PosX += MoveX;
             PosY += MoveY;
         }
+ 
     }
 }

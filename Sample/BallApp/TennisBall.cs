@@ -8,6 +8,7 @@ namespace BallApp {
     class TennisBall : Obj {
 
         //フィールド
+        private static int count = 0;
         Random rnd = new Random();//乱数生成
 
         //コンストラクタ
@@ -18,7 +19,10 @@ namespace BallApp {
             int rndY = rnd.Next(-20, 20);
             MoveX = (rndX != 0 ? rndX : 10);//乱数で移動量を設定
             MoveY = (rndY != 0 ? rndY : -10);//乱数で移動量を設定
+            Count++;
         }
+
+        public static int Count { get => count; set => count = value; }
 
         public override void Move() {
 
@@ -34,6 +38,7 @@ namespace BallApp {
             PosX += MoveX;
             PosY += MoveY;
         }
+        
     }
     
 }

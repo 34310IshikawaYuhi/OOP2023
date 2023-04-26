@@ -43,13 +43,13 @@ namespace BallApp {
             {
                 ballObj = new SoccerBall(e.X - 25, e.Y - 25);
                 pb.Size = new Size(50, 50); //画像の表示サイズ
-               
+                
             }
             else if(e.Button == MouseButtons.Right)
             {
                 ballObj = new TennisBall(e.X - 25, e.Y - 25);
                 pb.Size = new Size(25, 25); //画像の表示サイズ
-               
+                
             }
 
             pb.Image = ballObj.Image;
@@ -59,6 +59,8 @@ namespace BallApp {
 
             balls.Add(ballObj);
             pbs.Add(pb);
+
+            this.Text = "BallGame Soccer Ball:" + SoccerBall.Count1 + "TennisBall:" + TennisBall.Count;
 
             moveTimer.Start();//タイマースタート
         }

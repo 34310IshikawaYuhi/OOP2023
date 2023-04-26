@@ -17,7 +17,6 @@ namespace BallApp {
         private double moveX; //移動量
         private double moveY;//移動量
 
-
         //プロパティ
         public double PosX { get => posX; set => posX = value; }
         public double PosY { get => posY; set => posY = value; }
@@ -25,7 +24,7 @@ namespace BallApp {
         
         public double MoveX { get => moveX; set => moveX = value; }
         public double MoveY { get => moveY; set => moveY = value; }
-
+       
         //コンストラクタ
         public Obj(double PosX,double PosY, string path) {
 
@@ -38,7 +37,6 @@ namespace BallApp {
 
         //移動メソッド（抽象メソッド）
         public abstract void Move();
-
 
     }
 }
