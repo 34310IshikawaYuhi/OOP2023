@@ -10,14 +10,14 @@ namespace BallApp {
         public Bar(double xp,double yp) 
             :base(350, 400, @"pic\bar.png"){
 
-            MoveX = 10;
+            MoveX = 15;
             MoveY = 0;
         }
         //抽象クラスを継承しているので、不要なメソッドは空にする
-        public override void Move() {
+        public override void Move(PictureBox pbBar, PictureBox pbBall) {
             ;//
         }
-        public void Move(Keys direction) {
+        public override void Move(Keys direction) {
             if (direction == Keys.Right)
             {
                 if (PosX < 640)
@@ -34,6 +34,7 @@ namespace BallApp {
             }
            
         }
-     
+
+   
     }
 }
