@@ -9,9 +9,12 @@ using System.Windows.Forms;
 namespace BallApp {
     class Program :Form {
 
+        Bar bar;                 //Barインスタンス格納
+        PictureBox pbBar;        //Bar表示用
+
         private Timer moveTimer; //タイマー用
-        private PictureBox pb;  //画像を表示するコントロール
-        int Ballcnt = 0;
+        private PictureBox pb;   //画像を表示するコントロール
+       
 
         private List<Obj> balls = new List<Obj>();    //ボールインスタンス格納用
         private List<PictureBox> pbs = new List<PictureBox>();      //表示用
@@ -20,18 +23,32 @@ namespace BallApp {
             Application.Run(new Program());
         }
         public Program() { 
+
+            //フォーム
             this.Size = new Size(800, 600);
             this.BackColor = Color.Aqua;
             this.MouseClick += Program_MouseClick;
             this.KeyDown += Program_KeyDown;
 
+            //Barインスタンス生成
+            bar = new Bar(340, 500);
+            pbBar = new PictureBox();
+            pbBar.Image = bar.Image;
+            pbBar.Location = new Point((int)bar.PosX, (int)bar.PosY);
+            pbBar.Size = new Size(150, 10);
+            pbBar.SizeMode = PictureBoxSizeMode.StretchImage;
+            pbBar.Parent = this;
+
+            //タイマー生成
             moveTimer = new Timer();
             moveTimer.Interval = 1;//タイマーのインターバル(ms)
             moveTimer.Tick += MoveTimer_Tick; //デリゲート登録
         }
         //キーが押された時のイベントハンドラ
         private void Program_KeyDown(object sender, KeyEventArgs e) {
-            
+            bar.Move(e.KeyData);
+            pbBar.Location = new Point((int)bar.PosX, (int)bar.PosY);
+
         }
 
         //マウスクリック時のイベントハンドラー
