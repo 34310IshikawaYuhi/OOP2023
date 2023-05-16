@@ -4,7 +4,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{BAF85447-3DD7-47E8-A1A8-62611CEF7961}</ProjectGuid>
+    <ProjectGuid>{32D9065A-EE15-4A2F-9140-142D915F8534}</ProjectGuid>
     <OutputType>Exe</OutputType>
     <RootNamespace>SalesCalculator</RootNamespace>
     <AssemblyName>SalesCalculator</AssemblyName>
@@ -46,6 +46,7 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Sale.cs" />
+    <Compile Include="SalesCounter.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
