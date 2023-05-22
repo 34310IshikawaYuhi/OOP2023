@@ -8,7 +8,7 @@ namespace Exercise03 {
     class Program {
         static void Main(string[] args) {
             var sales = new SalesCounter(@"data\sales.csv");
-            var amountPerStore = sales.GetPerStoreSales();
+            var amountPerStore = sales.GetPerCategoeySales();
 
             Console.WriteLine("**売上集計**");
             Console.WriteLine("1.店舗別売上");
@@ -16,7 +16,7 @@ namespace Exercise03 {
             Console.Write(">");
             string num = Console.ReadLine();
             if (int.Parse(num) == 1) {
-                sales.GetPerStoreSales();
+                sales.GetPerCategoeySales();
             }
             else if (int.Parse(num)==2) {
 
