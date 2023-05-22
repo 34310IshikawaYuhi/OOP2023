@@ -26,6 +26,17 @@ namespace Exercise03 {
             }
             return dict;
         }
+        //商品カテゴリー別売り上げを求める
+        public IDictionary<string, int> GetPerStoreSales() {
+            var dict = new SortedDictionary<string, int>();
+            foreach (var sale in _sales) {
+                if (dict.ContainsKey(sale.ShopName))
+                    dict[sale.ShopName] += sale.Amount;  //店舗が既に存在する（売り上げ加算）
+                else
+                    dict[sale.ShopName] = sale.Amount;  //店舗が存在しない（新規格納）
+            }
+            return dict;
+        }
 
         //売り上げデータを読み込み、Saleオブジェクトのリストを返す
         private IEnumerable<Sale> ReadSales(string filePath) {
