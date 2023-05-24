@@ -40,20 +40,20 @@ namespace Exercise01 {
         }
 
         private static void Exercise1_3(List<int> numbers) {
-            
-            var datas = numbers.Where(s => s>=50);
-            foreach (var item in datas) {
-               Console.WriteLine(item);
-            }
+            numbers.Where(n=>n>=50).ToList().ForEach(Console.WriteLine) ;
+            //var datas = numbers.Where(s => s>=50);
+            //foreach (var item in datas) {
+            //   Console.WriteLine(item);
+            //}
         }
 
         private static void Exercise1_4(List<int> numbers) {
-         
+            numbers.Select(n => n * 2).ToList().ForEach(Console.WriteLine);
 
-            var list = numbers.Select(n => n * 2).ToList();
-            foreach (var item in list) {
-                Console.WriteLine(item);
-            }
+            //var list = numbers.Select(n => n * 2).ToList();
+            //foreach (var item in list) {
+            //    Console.WriteLine(item);
+            //}
         }
     }
 }
