@@ -40,7 +40,7 @@ namespace Exercise01 {
         }
 
         private static void Exercise1_3(List<int> numbers) {
-            numbers.Where(n=>n>=50).ToList().ForEach(Console.WriteLine) ;
+            numbers.Where(n => n >= 50).ToList().ForEach(Console.WriteLine);
             //var datas = numbers.Where(s => s>=50);
             //foreach (var item in datas) {
             //   Console.WriteLine(item);
