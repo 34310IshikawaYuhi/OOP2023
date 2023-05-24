@@ -4,19 +4,20 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Exercise02{
-    //フィートとメートルの単位変換クラス
+namespace Exercise02 {
+    //インチとメートルの単位変換クラス
     public static class InchConverter {
-        private const double ratio = 0.0254;
-
-        //メートルからフィートを求める
+        //定数
+        private const double ratio = 0.0254; 
+        
+        //メートルからインチを求める
         public static double FromMeter(double meter) {
             return meter / ratio;
         }
-        //フィートからメートルを求める
-        public static double ToMeter(double inch) {
-            return inch * ratio;
-        }
 
+        //インチからメートルを求める
+        public static double ToMeter(double feet) {
+            return feet * ratio;
+        }
     }
 }

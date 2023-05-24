@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // アセンブリに関する一般情報は以下の属性セットをとおして制御されます。
 // 制御されます。アセンブリに関連付けられている情報を変更するには、
 // これらの属性値を変更します。
-[assembly: AssemblyTitle("Exercise02")]
+[assembly: AssemblyTitle("Exercise01")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("Exercise02")]
+[assembly: AssemblyProduct("Exercise01")]
 [assembly: AssemblyCopyright("Copyright ©  2023")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // このプロジェクトが COM に公開される場合、次の GUID が typelib の ID になります
-[assembly: Guid("21cc0bd3-cb30-43a4-a488-6f85bc5dc56d")]
+[assembly: Guid("22e5ee6e-c4a9-4dcf-8a10-de2486d2af9b")]
 
 // アセンブリのバージョン情報は次の 4 つの値で構成されています:
 //

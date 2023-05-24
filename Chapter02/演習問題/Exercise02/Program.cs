@@ -10,13 +10,19 @@ namespace Exercise02 {
             if (args.Length < 3) {
                 return;
             }
-            if (args[0] == "-tom") {
-                PrintInchToMeterList(int.Parse(args[1]), int.Parse(args[2]));
-            }
-            else if(args[0] == "-toi"){
-                PrintMeterToFeetList(int.Parse(args[1]), int.Parse(args[2]));
-            }
 
+            int start = int.Parse(args[1]);
+            int end = int.Parse(args[2]);
+
+            switch (args[0]) {
+                case "-tom":
+                    PrintInchToMeterList(start, end);
+                    break;
+
+                case "-toi":
+                    PrintMeterToInchList(start, end);
+                    break;
+            }
         }
 
         private static void PrintInchToMeterList(int start, int stop) {
@@ -26,10 +32,10 @@ namespace Exercise02 {
             }
         }
 
-        private static void PrintMeterToFeetList(int start, int stop) {
+        private static void PrintMeterToInchList(int start, int stop) {
             for (int meter = start; meter <= stop; meter++) {
                 double inch = InchConverter.FromMeter(meter);
-                Console.WriteLine("{0} m = {1:0.0000}inch", meter, inch);
+                Console.WriteLine("{0} m = {1:0.0000}ft", meter, inch);
             }
         }
     }
