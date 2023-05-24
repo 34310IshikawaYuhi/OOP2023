@@ -37,8 +37,10 @@ namespace Exercise02 {
         }
 
         private static void Exercise2_3(List<string> names) {
-            
-            
+            var list = names.Where(n => n.Contains("o"));
+            foreach (var city in list) {
+                Console.WriteLine(city);
+            }
         }
 
         private static void Exercise2_4(List<string> names) {
