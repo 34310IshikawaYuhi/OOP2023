@@ -23,9 +23,13 @@ namespace Section04 {
             #endregion
 
             #region null条件演算子
-
-
-
+            //Sale sale = new Sale() {
+            //    Amount = 100,
+            //};
+            Sale sale = null;
+            //「int?」はnull許容型、「?.」はnull条件演算子
+            int? ret = sale?.Amount;
+            Console.WriteLine(ret);
             #endregion
         }
 
@@ -35,5 +39,14 @@ namespace Section04 {
         private static object DefaultMessage() {
             return "Default Message";
         }
+    }
+    //売り上げクラス
+    public class Sale {
+        //店舗名
+        public string ShopName { get; set; }
+        //商品カテゴリー
+        public string ProductCategory { get; set; }
+        //売上高
+        public int Amount { get; set; }
     }
 }
