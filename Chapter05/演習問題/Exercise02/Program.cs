@@ -7,11 +7,15 @@ using System.Threading.Tasks;
 namespace Exercise02 {
     class Program {
         static void Main(string[] args) {
-            Console.Write("文字列１：");
-            var s1 = Console.ReadLine();
+            var line = Console.ReadLine();
+            int num;
+            if(int.TryParse(line,out num)) {
+                Console.WriteLine("{0:#.#}", num);
 
-            Console.Write("文字列２：");
-            var s2 = Console.ReadLine();
+            }
+            else {
+                Console.WriteLine("数字文字列でありません");
+            }
         }
     }
 }
