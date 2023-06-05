@@ -52,15 +52,17 @@ namespace Exercise03 {
 
         private static void Exercise3_5(string text) {
             string[] words = text.Split(' ');
-            var sb = new StringBuilder(words[0]);
-            
-            foreach (var word in words.Skip(1)) {
-                //sb.Append(word+' ');
-                sb.Append(' ');
-                sb.Append(word);
+            if (words.Length > 0) {
+                var sb = new StringBuilder(words[0]);
+
+                foreach (var word in words.Skip(1)) {
+                    //sb.Append(word+' ');
+                    sb.Append(' ');
+                    sb.Append(word);
+                }
+                var t = sb.ToString();
+                Console.WriteLine(t);
             }
-            var t = sb.ToString();
-            Console.WriteLine(t);
         }
     }
 }
