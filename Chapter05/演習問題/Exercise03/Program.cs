@@ -22,11 +22,13 @@ namespace Exercise03 {
             Console.WriteLine("-----");
 
             Exercise3_5(text);
-            {\rtf1}
+            
         }
 
         private static void Exercise3_1(string text) {
-            
+            int count = text.Count(n => n == ' ');
+            Console.WriteLine(count);
+
         }
 
         private static void Exercise3_2(string text) {
