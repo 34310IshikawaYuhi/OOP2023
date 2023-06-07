@@ -44,7 +44,10 @@ namespace Exercise01 {
         }
 
         private static void Exercise1_4(int[] numbers) {
-            throw new NotImplementedException();
+            int[] minNum = numbers.OrderBy(x => x).Take(3).ToArray();
+            foreach (var item in minNum) {
+                Console.WriteLine(item);
+            }
         }
 
         private static void Exercise1_5(int[] numbers) {
