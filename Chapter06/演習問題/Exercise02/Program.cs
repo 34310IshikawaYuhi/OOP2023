@@ -16,6 +16,7 @@ namespace Exercise02 {
                new Book { Title = "私でも分かったASP.NET MVC", Price = 3200, Pages = 453 },
                new Book { Title = "楽しいC#プログラミング教室", Price = 2540, Pages = 348 },
             };
+            
 
             Exercise2_1(books);
             Console.WriteLine("-----");
@@ -41,11 +42,12 @@ namespace Exercise02 {
         }
 
         private static void Exercise2_1(List<Book> books) {
-            throw new NotImplementedException();
+            var booksOBJ = books.Where(x => x.Title.Contains("ワンダフル・C# ライフ"));
+            Console.WriteLine("価格：{0} ページ数：{1}",books.Price,books.Pages);
         }
 
         private static void Exercise2_2(List<Book> books) {
-            throw new NotImplementedException();
+            var cnt = 
         }
 
         private static void Exercise2_3(List<Book> books) {
