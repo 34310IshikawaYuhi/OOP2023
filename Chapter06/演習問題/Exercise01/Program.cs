@@ -51,7 +51,8 @@ namespace Exercise01 {
         }
 
         private static void Exercise1_5(int[] numbers) {
-            throw new NotImplementedException();
+            var cnt = numbers.Distinct().Where(x => x >= 10);
+            Console.WriteLine(cnt.Count());
         }
     }
 }
