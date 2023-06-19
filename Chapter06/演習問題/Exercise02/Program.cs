@@ -43,31 +43,45 @@ namespace Exercise02 {
 
         private static void Exercise2_1(List<Book> books) {
             var booksOBJ = books.Where(x => x.Title.Contains("ワンダフル・C# ライフ"));
-            Console.WriteLine("価格：{0} ページ数：{1}",books.Price,books.Pages);
+            foreach (var book in booksOBJ) {
+                Console.WriteLine("価格：{0} ページ数：{1}", book.Price, book.Pages);
+            }         
         }
 
         private static void Exercise2_2(List<Book> books) {
-            var cnt = 
+            var cnt = books.Where(x => x.Title.Contains("C#"));
+            Console.WriteLine(cnt.Count());
         }
 
         private static void Exercise2_3(List<Book> books) {
-            throw new NotImplementedException();
+            var avgPages = books.Where(x => x.Title.Contains("C#")).Average(x => x.Pages);
+            Console.WriteLine("平均ページ数:{0}", avgPages);
         }
 
         private static void Exercise2_4(List<Book> books) {
-            throw new NotImplementedException();
+            var book = books.Where(x => x.Price >= 4000).Take(1);
+            foreach (var price in book) {
+                Console.WriteLine(price.Title);
+            }
         }
 
         private static void Exercise2_5(List<Book> books) {
-            throw new NotImplementedException();
+            var MaxPages = books.Where(x => x.Price < 4000).Max(x=>x.Pages);
+            Console.WriteLine(MaxPages);
         }
 
         private static void Exercise2_6(List<Book> books) {
-            throw new NotImplementedException();
+            var Pages = books.Where(x => x.Pages >= 400).OrderByDescending(x => x.Pages).ToArray();
+            foreach (var book in Pages) {
+                Console.WriteLine("{0}:{1}",book.Title,book.Price);
+            }
         }
 
         private static void Exercise2_7(List<Book> books) {
-            throw new NotImplementedException();
+            var Cbook = books.Where(x => x.Title.Contains("C#")).Where(x => x.Pages <= 500);
+            foreach (var book in Cbook) {
+                Console.WriteLine(book.Title);
+            }
         }
     }
     class Book {
