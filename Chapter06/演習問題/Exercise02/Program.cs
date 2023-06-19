@@ -59,10 +59,8 @@ namespace Exercise02 {
         }
 
         private static void Exercise2_4(List<Book> books) {
-            var book = books.Where(x => x.Price >= 4000).Take(1);
-            foreach (var price in book) {
-                Console.WriteLine(price.Title);
-            }
+            var book = books.Where(x => x.Price >= 4000).First();
+                Console.WriteLine(book.Title);
         }
 
         private static void Exercise2_5(List<Book> books) {
