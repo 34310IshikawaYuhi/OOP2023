@@ -42,7 +42,7 @@ namespace Exercise02 {
         }
 
         private static void Exercise2_1(List<Book> books) {
-            var booksOBJ = books.Where(x => x.Title.Contains("ワンダフル・C# ライフ"));
+            var booksOBJ = books.Where(x => x.Title.Contains("ワンダフル・C#ライフ"));
             foreach (var book in booksOBJ) {
                 Console.WriteLine("価格：{0} ページ数：{1}", book.Price, book.Pages);
             }         
