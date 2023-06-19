@@ -39,7 +39,7 @@ namespace Test01 {
             var dict = new SortedDictionary<string, int>();
             foreach (var student in _score) {
                 if (dict.ContainsKey(student.Subject))
-                    dict[student.Subject] += student.Score; 
+                    dict[student.Subject] += student.Score; //科目名が存在する(点数加算)
                 else
                     dict[student.Subject] = student.Score;  //科目名が存在しない（新規格納）
             }
