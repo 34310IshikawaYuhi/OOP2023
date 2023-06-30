@@ -17,7 +17,8 @@ namespace Exercise02 {
 
             //7.2.3
             //上のAddメソッドで、２つのオブジェクトを追加しているので読み込んだ単語
-
+            int count = abbrs.Count;
+            Console.WriteLine(count);
             //7.2.3(Removeの呼び出し)
             abbrs.Remove("IOC");
         }

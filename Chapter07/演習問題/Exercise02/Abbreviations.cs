@@ -45,7 +45,12 @@ namespace Section03 {
         }
 
         //7.2.1
-        
+        public int Count {
+            get {
+                return _dict.Count();
+            } 
+                
+        }
 
 
         //7.2.2
@@ -55,7 +60,7 @@ namespace Section03 {
             }
             else {
                 _dict.Remove(abb);
-                return true;
+               return true;
             }
 
         }
