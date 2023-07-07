@@ -14,18 +14,15 @@ namespace CalenderApp {
             InitializeComponent();
         }
 
-        private void label1_Click(object sender, EventArgs e) {
-
-        }
-
         private void btDayCalc_Click(object sender, EventArgs e) {
             var dtp = dtpDate.Value;
             var now = DateTime.Now;
 
-            var daySpan = now - dtp;
+            tbMessage.Text = "入力した日から"+(now-dtp).Days+"日経過しています。";
+        }
 
-
-            tbMessage.Text = daySpan.ToString("dd");
+        private void yearBefore_Click(object sender, EventArgs e) {
+            
         }
     }
 }
