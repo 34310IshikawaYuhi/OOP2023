@@ -20,7 +20,7 @@ namespace CarReportSystem {
 
         //追加ボタンがクリックされた時のイベントハンドラー
         private void btAddReport_Click(object sender, EventArgs e) {
-            var carReport = new CarReport                            //Saleインスタンスを生成
+            var carReport = new CarReport                            //CarReportインスタンスを生成
             {
                 Date = dtpDate.Value,
                 Author = cbAuthor.Text,
@@ -49,6 +49,10 @@ namespace CarReportSystem {
 
         private void Form1_Load(object sender, EventArgs e) {
             dgvCarReports.Columns[5].Visible = false;   //画像項目非表示
+        }
+
+        private void btDeleteReport_Click(object sender, EventArgs e) {
+            CarReports.RemoveAt(dgvCarReports.CurrentRow.Index);
         }
     }
 }
