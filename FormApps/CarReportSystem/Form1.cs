@@ -129,9 +129,17 @@ namespace CarReportSystem {
         }
 
         private void Form1_Load(object sender, EventArgs e) {
+            tsInfoText.Text = "";//情報表示領域のテキストを初期化
+            tsTime.Text = DateTime.Now.ToString("yyyy年MM月dd日HH時mm分ss秒");
+            tsTime.BackColor = Color.Black;
+            tsTime.ForeColor = Color.White;
+            tmTimeUpdate.Start();
+
+            
             dgvCarReports.Columns[5].Visible = false;   //画像項目非表示
             btModifyReport.Enabled = false;
             btDeleteReport.Enabled = false;
+
 
             //設定ファイルを逆シリアル化して背景を設定
             using (var reader = XmlReader.Create("Settings.xml")) {
@@ -189,9 +197,6 @@ namespace CarReportSystem {
             pbCarImage.Image = null;
         }
 
-        private void statusStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e) {
-
-        }
 
         private void 色設定ToolStripMenuItem_Click(object sender, EventArgs e) {
             if(cdColor.ShowDialog() == DialogResult.OK) {
@@ -215,6 +220,9 @@ namespace CarReportSystem {
                 serializer.Serialize(writer,settings);
             }
 
+        }
+        private void tmTimeUpdate_Tick(object sender, EventArgs e) {
+            tsTime.Text = DateTime.Now.ToString("yyyy年MM月dd日HH時mm分ss秒");
         }
     }
 }
