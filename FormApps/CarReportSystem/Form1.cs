@@ -17,7 +17,7 @@ namespace CarReportSystem {
         static int mode = 0;
 
         //設定情報保存用オブジェクト
-        Settings settings = new Settings();
+        Settings settings = Settings.getInstance();
 
         public Form1() {
             InitializeComponent();
