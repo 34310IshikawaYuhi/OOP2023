@@ -24,15 +24,22 @@ namespace Exercise01 {
             Exercise1_4("employees.json");
 
             // これは確認用
-            Console.WriteLine(File.ReadAllText("employees.json"));
+            //Console.WriteLine(File.ReadAllText("employees.json"));
         }
 
         private static void Exercise1_1(string v) {
 
-            using(var writer = XmlWriter.Create("employee.xml")) {
-                var serializer = new XmlSerializer(employee.GetType());
-                serializer.Serialize(writer, employee);
+            var emp = new Employee {
+                Id = 123,
+                Name = "山田　博人",
+                HireDate = new DateTime(2023, 9, 5)
+            };
+            //シリアル化
+            using (var writer = XmlWriter.Create("employee.xml")) {
+                var serializer = new XmlSerializer(emp.GetType());
+                serializer.Serialize(writer, emp);
             }
+            //逆シリアル化
             using (var reader = XmlReader.Create("employee.xml")) {
                 var serializer = new XmlSerializer(typeof(Employee));
                 var employee = serializer.Deserialize(reader) as Employee;
