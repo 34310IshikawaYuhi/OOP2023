@@ -87,25 +87,34 @@ namespace Exercise01 {
         }
 
         private static void Exercise1_4(string v) {
-            var emps = new Employee[] {
-                new Employee {
+            var emps = new Employee2[] {
+                new Employee2 {
                     Id = 123,
                     Name = "出井　秀行",
                     HireDate = new DateTime(2001,5,10)
 
                 },
-                new Employee {
+                new Employee2 {
                     Id = 139,
                     Name = "大橋　孝仁",
                     HireDate = new DateTime(2004,12,1)
                 },
             };
-            using(var stream = new FileStream(v,FileMode.Create,
-                                        FileAccess.Write)) {
+            using(var stream = new FileStream(v,FileMode.Create,FileAccess.Write)) {
                 var serializer = new DataContractSerializer(emps.GetType());
                 serializer.WriteObject(stream, emps);
             }
 
         }
+    }
+    [DataContract]
+    public class Employee2 {
+        public int Id { get; set; }
+        [DataMember(Name="name")]
+        public string Name { get; set; }
+        [DataMember(Name="hiredate")]
+        public DateTime HireDate { get; set; }
+
+
     }
 }
