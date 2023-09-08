@@ -44,15 +44,16 @@ namespace CarReportSystem {
             }
 
 
-            var carReport = new CarReport { //Carインスタンスを生成
-                Date = dtpDate.Value,
-                Author = cbAuthor.Text,
-                Maker = getSelectedMaker(),
-                CarName = cbCarName.Text,
-                Report = tbReport.Text,
-                CarImage = pbCarImage.Image,
-            };
-            CarReports.Add(carReport);
+            DataRow newRow = infosys202333DataSet.CarReportTable.NewRow();
+            newRow[1] = dtpDate.Value;
+            newRow[2] = cbAuthor.Text;
+            newRow[3] = getSelectedMaker();
+            newRow[4] = cbCarName.Text;
+            newRow[5] = tbReport.Text;
+            newRow[6] = ImageToByteArray(pbCarImage.Image);
+
+            infosys202333DataSet.CarReportTable.Rows.Add(newRow);
+            //this.carReportTableTableAdapter.Update(infosys202333DataSet.CarReportTable);
 
             setCbAuthor(cbAuthor.Text); //記録者登録
             setCbCarName(cbCarName.Text);//車名登録
@@ -153,7 +154,11 @@ namespace CarReportSystem {
 
         //削除ボタンイベントハンドラ
         private void btDeleteReport_Click(object sender, EventArgs e) {
-            CarReports.RemoveAt(dgvCarReports.CurrentRow.Index);
+
+            dgvCarReports.Rows.RemoveAt(dgvCarReports.CurrentRow.Index);
+            this.Validate();
+            this.carReportTableBindingSource.EndEdit();
+            this.tableAdapterManager.UpdateAll(this.infosys202333DataSet);
             editItemsClear();
         }
 
