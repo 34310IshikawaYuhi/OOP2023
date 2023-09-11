@@ -223,47 +223,6 @@ namespace CarReportSystem {
             tsTime.Text = DateTime.Now.ToString("yyyy年MM月dd日HH時mm分ss秒");
         }
 
-        private void 保存SToolStripMenuItem_Click(object sender, EventArgs e) {
-            if(sfdCarRepoSave.ShowDialog() == DialogResult.OK) {
-                try {
-                    //バイナリ形式でシリアル化
-                    var bf = new BinaryFormatter();
-                    using (FileStream fs = File.Open(sfdCarRepoSave.FileName, FileMode.Create)) {
-                        bf.Serialize(fs, CarReports);
-                    }
-                }
-                catch (Exception ex) {
-                    MessageBox.Show(ex.Message);
-                }
-
-
-            }
-        }
-
-        private void 開くOToolStripMenuItem_Click(object sender, EventArgs e) {
-            if(ofdCarRepoOpen.ShowDialog() == DialogResult.OK) {
-                try {
-                    //逆シリアル化でバイナリ形式を取り込む
-                    var bf = new BinaryFormatter();
-                    using (FileStream fs = File.Open(ofdCarRepoOpen.FileName, FileMode.Open, FileAccess.Read)) {
-                        CarReports = (BindingList<CarReport>)bf.Deserialize(fs);
-                        dgvCarReports.DataSource = null;
-                        dgvCarReports.DataSource = CarReports;
-
-                        editItemsClear();//入力途中などのデータはすべてクリア
-                        dgvCarReports.Columns[5].Visible = false;   //画像項目非表示
-                        foreach (var carReport in CarReports) {
-                            setCbAuthor(carReport.Author);
-                            setCbCarName(carReport.CarName);
-                        }
-                    }
-                }
-                catch (Exception ex) {
-                    MessageBox.Show(ex.Message);
-                }
-            }
-        }
-
         //レコードの選択時
         private void dgvCarReports_Click(object sender, EventArgs e) {
             if (dgvCarReports.RowCount != 0) {
@@ -312,7 +271,10 @@ namespace CarReportSystem {
 
         }
 
-        private void btConnection_Click(object sender, EventArgs e) {
+        private void 接続CtoolStripMenuItem1_Click(object sender, EventArgs e) {
+            dbConnection();
+        }
+        private void dbConnection() {
             // TODO: このコード行はデータを 'infosys202333DataSet.CarReportTable' テーブルに読み込みます。必要に応じて移動、または削除をしてください。
             this.carReportTableTableAdapter.Fill(this.infosys202333DataSet.CarReportTable);
             dgvCarReports.ClearSelection();
@@ -321,7 +283,6 @@ namespace CarReportSystem {
                 setCbAuthor(carReport.Author);
                 setCbCarName(carReport.CarName);
             }
-            
         }
     }
 }
