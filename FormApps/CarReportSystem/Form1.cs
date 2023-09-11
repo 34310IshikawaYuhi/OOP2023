@@ -284,5 +284,23 @@ namespace CarReportSystem {
                 setCbCarName(carReport.CarName);
             }
         }
+
+        private void btASearch_Click(object sender, EventArgs e) {
+            carReportTableTableAdapter.FillByAuthor(this.infosys202333DataSet.CarReportTable, tbAuthorSearch.Text);
+        }
+
+        private void btCSearch_Click(object sender, EventArgs e) {
+            carReportTableTableAdapter.FillByCarName(this.infosys202333DataSet.CarReportTable, tbCarNameSearch.Text);
+        }
+
+        private void btDSearch_Click(object sender, EventArgs e) {
+            carReportTableTableAdapter.FillByDate(this.infosys202333DataSet.CarReportTable, dtpDateSearch.Value.ToString());
+        }
+
+        private void button1_Click(object sender, EventArgs e) {
+            carReportTableTableAdapter.Fill(this.infosys202333DataSet.CarReportTable);
+            tbAuthorSearch.Text = null;
+            tbCarNameSearch.Text = null;
+        }
     }
 }
