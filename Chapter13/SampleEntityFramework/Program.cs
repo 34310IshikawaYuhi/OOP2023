@@ -10,8 +10,8 @@ using System.Threading.Tasks;
 namespace SampleEntityFramework {
     class Program {
         static void Main(string[] args) {
-            //Console.WriteLine("# 1.1");
-            // Exercise1_1();
+            Console.WriteLine("# 1.1");
+             Exercise1_1();
 
             Console.WriteLine();
             Console.WriteLine("# 1.2");
@@ -92,7 +92,9 @@ namespace SampleEntityFramework {
 
         private static void Exercise1_2() {
             foreach (var book in GetBooks()) {
-                Console.WriteLine($"{book.Title}  {book.Author.Name}");
+                Console.WriteLine("{0} {1} {2} ({3:yyyy/MM/dd})"
+                    ,book.Title,book.PublishedYear
+                    ,book.Author.Name,book.Author.Birthday);
             }
         }
 
