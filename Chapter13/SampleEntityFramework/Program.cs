@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -9,24 +10,119 @@ using System.Threading.Tasks;
 namespace SampleEntityFramework {
     class Program {
         static void Main(string[] args) {
-            //InsertBooks();
-            //Console.Write("データを挿入しました。続けるにはEnterキーを押してください。");
-            //AddBooks();
-            //DisplayAllBooks();
-            //AddAuthor();
+            //Console.WriteLine("# 1.1");
+            // Exercise1_1();
 
-            //UpdateBook();
+            Console.WriteLine();
+            Console.WriteLine("# 1.2");
+            Exercise1_2();
 
+            Console.WriteLine();
+            Console.WriteLine("# 1.3");
+            Exercise1_3();
 
-            foreach (var book in GetBooks()) {
-                Console.WriteLine($"{book.Title}  " +
-                    $"{book.Author.Name}");
-            }
+            Console.WriteLine();
+            Console.WriteLine("# 1.4");
+            Exercise1_4();
 
+            Console.WriteLine();
+            Console.WriteLine("# 1.5");
+            Exercise1_5();
 
             Console.ReadLine();
-            Console.WriteLine();
+
+            /*using (var db = new BooksDbContext()) {
+
+                db.Database.Log = sql => { Debug.Write(sql); };
+
+                var count = db.Books.Count();
+                Console.WriteLine(count);
+            }*/
+
         }
+
+        private static void Exercise1_1() {
+            using (var db = new BooksDbContext()) {
+                var author1 = new Author {
+                    Birthday = new DateTime(1888, 12, 26),
+                    Gender = "M",
+                    Name = "菊池寛",
+                };
+                db.Authors.Add(author1);
+                var author2 = new Author {
+                    Birthday = new DateTime(1899, 6, 14),
+                    Gender = "M",
+                    Name = "川端康成",
+                };
+                db.Authors.Add(author2);
+
+                var author3 = db.Authors.Single(a => a.Name == "夏目漱石");
+                var book1 = new Book {
+                    Title = "こころ",
+                    PublishedYear = 1991,
+                    Author = author3
+                };
+                db.Books.Add(book1);
+
+                var book2 = new Book {
+                    Title = "伊豆の踊子",
+                    PublishedYear = 2003,
+                    Author = author2
+                };
+                db.Books.Add(book2);
+
+                var book3 = new Book {
+                    Title = "真珠夫人",
+                    PublishedYear = 2002,
+                    Author = author1
+                };
+                db.Books.Add(book3);
+
+                var author4 = db.Authors.Single(a => a.Name == "宮沢賢治");
+                var book4 = new Book {
+                    Title = "注文の多い料理店",
+                    PublishedYear = 2000,
+                    Author = author4
+                };
+                db.Books.Add(book4);
+
+                db.SaveChanges();
+            }
+        }
+
+        private static void Exercise1_2() {
+            var books = GetBooks();
+            foreach (var book in books) {
+                Console.WriteLine($"{book.Title}  {book.Author.Name}");
+            }
+        }
+
+        private static void Exercise1_3() {
+            string longest = "";
+            var books = GetBooks();
+            foreach (var book in books) {
+                if (longest.Length < book.Title.Length ) {
+                    longest = book.Title;
+                }
+            }
+            Console.WriteLine(longest);
+        }
+
+        private static void Exercise1_4() {
+            
+            var books = GetBooks();
+            var order_books = books.OrderBy(b => b.PublishedYear).Select(b=>b);
+            foreach (var book in order_books.Take(3)) {
+                
+                Console.WriteLine($"{book.Title}  {book.Author.Name}");
+
+            }
+        }
+
+        private static void Exercise1_5() {
+            
+        }
+
         // List 13-5
         static void InsertBooks() {
             using (var db = new BooksDbContext()) {
@@ -83,13 +179,15 @@ namespace SampleEntityFramework {
                     Name = "与謝野晶子",
                 };
                 db.Authors.Add(author1);
+
                 var author2 = new Author {
                     Birthday = new DateTime(1896, 8, 27),
                     Gender = "M",
                     Name = "宮沢賢治",
                 };
                 db.Authors.Add(author2);
-                db.SaveChanges();
+
+                
             }
 
         }
