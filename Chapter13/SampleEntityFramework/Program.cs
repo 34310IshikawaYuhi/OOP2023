@@ -91,16 +91,14 @@ namespace SampleEntityFramework {
         }
 
         private static void Exercise1_2() {
-            var books = GetBooks();
-            foreach (var book in books) {
+            foreach (var book in GetBooks()) {
                 Console.WriteLine($"{book.Title}  {book.Author.Name}");
             }
         }
 
         private static void Exercise1_3() {
             string longest = "";
-            var books = GetBooks();
-            foreach (var book in books) {
+            foreach (var book in GetBooks()) {
                 if (longest.Length < book.Title.Length ) {
                     longest = book.Title;
                 }
@@ -110,9 +108,8 @@ namespace SampleEntityFramework {
 
         private static void Exercise1_4() {
             
-            var books = GetBooks();
-            var order_books = books.OrderBy(b => b.PublishedYear).Select(b=>b);
-            foreach (var book in order_books.Take(3)) {
+            var books = GetBooks().OrderBy(b => b.PublishedYear);
+            foreach (var book in books.Take(3)) {
                 
                 Console.WriteLine($"{book.Title}  {book.Author.Name}");
 
@@ -120,7 +117,19 @@ namespace SampleEntityFramework {
         }
 
         private static void Exercise1_5() {
-            
+            using (var db = new BooksDbContext()) {
+
+                var authors = db.Authors.OrderByDescending(a => a.Birthday);
+                foreach (var author in authors) {
+                    Console.WriteLine($"{author.Name}");
+                    foreach (var book in GetBooks().Where(b=>b.Author.Name==author.Name)) {
+                        Console.WriteLine($"{book.Title}  {book.PublishedYear}");
+                        
+                    }
+                    Console.WriteLine();
+
+                }
+            }
         }
 
         // List 13-5
@@ -155,7 +164,6 @@ namespace SampleEntityFramework {
         static IEnumerable<Book> GetBooks() {
             using (var db = new BooksDbContext()) {
                 return db.Books
-                    .Where(book => book.PublishedYear>1900)
                     .Include(nameof(Author))
                     .ToList();
             }
