@@ -10,8 +10,8 @@ using System.Threading.Tasks;
 namespace SampleEntityFramework {
     class Program {
         static void Main(string[] args) {
-            Console.WriteLine("# 1.1");
-             Exercise1_1();
+            //Console.WriteLine("# 1.1");
+            //Exercise1_1();
 
             Console.WriteLine();
             Console.WriteLine("# 1.2");
