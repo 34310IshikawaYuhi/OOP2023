@@ -21,6 +21,9 @@ namespace RssReader {
         }
 
         private void btGet_Click(object sender, EventArgs e) {
+            if (tbUrl.Text =="")
+                return;
+
             using (var wc = new WebClient()) {
                 var url = wc.OpenRead(tbUrl.Text);
                 XDocument xdoc = XDocument.Load(url);
@@ -40,6 +43,9 @@ namespace RssReader {
         }
 
         private void lbRssTitle_SelectedIndexChanged(object sender, EventArgs e) {
+            if (lbRssTitle.SelectedIndex == -1) 
+                return;
+
             var index = lbRssTitle.SelectedIndex;
             wbBrower.Navigate(ItemDatas[index].Link);
             

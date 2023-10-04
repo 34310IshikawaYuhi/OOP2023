@@ -50,27 +50,29 @@ namespace RssReader {
             // 
             // lbRssTitle
             // 
+            this.lbRssTitle.Font = new System.Drawing.Font("MS UI Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
             this.lbRssTitle.FormattingEnabled = true;
             this.lbRssTitle.ItemHeight = 12;
             this.lbRssTitle.Location = new System.Drawing.Point(29, 64);
             this.lbRssTitle.Name = "lbRssTitle";
-            this.lbRssTitle.Size = new System.Drawing.Size(227, 544);
+            this.lbRssTitle.Size = new System.Drawing.Size(188, 544);
             this.lbRssTitle.TabIndex = 2;
             this.lbRssTitle.SelectedIndexChanged += new System.EventHandler(this.lbRssTitle_SelectedIndexChanged);
             // 
             // wbBrower
             // 
-            this.wbBrower.Location = new System.Drawing.Point(262, 65);
+            this.wbBrower.Location = new System.Drawing.Point(223, 65);
             this.wbBrower.MinimumSize = new System.Drawing.Size(20, 20);
             this.wbBrower.Name = "wbBrower";
             this.wbBrower.ScriptErrorsSuppressed = true;
-            this.wbBrower.Size = new System.Drawing.Size(642, 543);
+            this.wbBrower.Size = new System.Drawing.Size(681, 543);
             this.wbBrower.TabIndex = 3;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoSize = true;
             this.ClientSize = new System.Drawing.Size(916, 620);
             this.Controls.Add(this.wbBrower);
             this.Controls.Add(this.lbRssTitle);
