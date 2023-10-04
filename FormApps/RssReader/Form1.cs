@@ -24,6 +24,8 @@ namespace RssReader {
             if (tbUrl.Text =="")
                 return;
 
+            lbRssTitle.Items.Clear();
+
             using (var wc = new WebClient()) {
                 var url = wc.OpenRead(tbUrl.Text);
                 XDocument xdoc = XDocument.Load(url);
@@ -49,6 +51,10 @@ namespace RssReader {
             var index = lbRssTitle.SelectedIndex;
             wbBrower.Navigate(ItemDatas[index].Link);
             
+        }
+
+        private void tbUrl_TextChanged(object sender, EventArgs e) {
+
         }
     }
 }
