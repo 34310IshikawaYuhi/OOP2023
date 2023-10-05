@@ -13,22 +13,11 @@ namespace Exercise02 {
         }
 
         private static void Pickup3DigitNumber(string file) {
-
-            var lists = new List<string>();
-            var regex = new Regex(@"^[0-9]{3,}$");
-
             foreach (var line in File.ReadLines(file)) {
-
-                string[] str = line.Split(' ');
-                lists.AddRange(str);
-
-            }
-            foreach (var list in lists) {
-
-                var isMatch = regex.IsMatch(list);
-                if (isMatch)
-                    Console.WriteLine(list);
-
+                var matches = Regex.Matches(line, @"\b[0-9]{3,}\b");
+                foreach (Match m in matches) {
+                    Console.WriteLine(m.Value);
+                }
             }
 
 

@@ -9,7 +9,10 @@ namespace Exercise04 {
     class Program {
         static void Main(string[] args) {
             var lines = File.ReadAllLines("sample.txt");
+            var pattern = @"[Vv]ersion";
+            foreach (var line in lines) {
 
+            }
 
 
 
