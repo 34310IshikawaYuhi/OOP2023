@@ -52,9 +52,9 @@ namespace RssReader {
             wbBrower.Navigate(ItemDatas[index].Link);
             
         }
-
-        private void tbUrl_TextChanged(object sender, EventArgs e) {
+        private void setSelectedRss() {
 
         }
+
     }
 }

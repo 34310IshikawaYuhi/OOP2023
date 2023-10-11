@@ -28,6 +28,11 @@ namespace RssReader {
             this.btGet = new System.Windows.Forms.Button();
             this.lbRssTitle = new System.Windows.Forms.ListBox();
             this.wbBrower = new System.Windows.Forms.WebBrowser();
+            this.btfav = new System.Windows.Forms.Button();
+            this.rbIT = new System.Windows.Forms.RadioButton();
+            this.rbJP = new System.Windows.Forms.RadioButton();
+            this.rbin = new System.Windows.Forms.RadioButton();
+            this.rbeco = new System.Windows.Forms.RadioButton();
             this.SuspendLayout();
             // 
             // tbUrl
@@ -37,7 +42,6 @@ namespace RssReader {
             this.tbUrl.Name = "tbUrl";
             this.tbUrl.Size = new System.Drawing.Size(794, 31);
             this.tbUrl.TabIndex = 0;
-            this.tbUrl.TextChanged += new System.EventHandler(this.tbUrl_TextChanged);
             // 
             // btGet
             // 
@@ -69,12 +73,70 @@ namespace RssReader {
             this.wbBrower.Size = new System.Drawing.Size(681, 543);
             this.wbBrower.TabIndex = 3;
             // 
+            // btfav
+            // 
+            this.btfav.Location = new System.Drawing.Point(922, 28);
+            this.btfav.Name = "btfav";
+            this.btfav.Size = new System.Drawing.Size(75, 31);
+            this.btfav.TabIndex = 4;
+            this.btfav.Text = "登録";
+            this.btfav.UseVisualStyleBackColor = true;
+            // 
+            // rbIT
+            // 
+            this.rbIT.AutoSize = true;
+            this.rbIT.Location = new System.Drawing.Point(922, 66);
+            this.rbIT.Name = "rbIT";
+            this.rbIT.Size = new System.Drawing.Size(33, 16);
+            this.rbIT.TabIndex = 5;
+            this.rbIT.TabStop = true;
+            this.rbIT.Text = "IT";
+            this.rbIT.UseVisualStyleBackColor = true;
+            // 
+            // rbJP
+            // 
+            this.rbJP.AutoSize = true;
+            this.rbJP.Location = new System.Drawing.Point(922, 89);
+            this.rbJP.Name = "rbJP";
+            this.rbJP.Size = new System.Drawing.Size(47, 16);
+            this.rbJP.TabIndex = 6;
+            this.rbJP.TabStop = true;
+            this.rbJP.Text = "国内";
+            this.rbJP.UseVisualStyleBackColor = true;
+            // 
+            // rbin
+            // 
+            this.rbin.AutoSize = true;
+            this.rbin.Location = new System.Drawing.Point(922, 112);
+            this.rbin.Name = "rbin";
+            this.rbin.Size = new System.Drawing.Size(47, 16);
+            this.rbin.TabIndex = 7;
+            this.rbin.TabStop = true;
+            this.rbin.Text = "国際";
+            this.rbin.UseVisualStyleBackColor = true;
+            // 
+            // rbeco
+            // 
+            this.rbeco.AutoSize = true;
+            this.rbeco.Location = new System.Drawing.Point(922, 135);
+            this.rbeco.Name = "rbeco";
+            this.rbeco.Size = new System.Drawing.Size(47, 16);
+            this.rbeco.TabIndex = 8;
+            this.rbeco.TabStop = true;
+            this.rbeco.Text = "経済";
+            this.rbeco.UseVisualStyleBackColor = true;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
-            this.ClientSize = new System.Drawing.Size(916, 620);
+            this.ClientSize = new System.Drawing.Size(1043, 620);
+            this.Controls.Add(this.rbeco);
+            this.Controls.Add(this.rbin);
+            this.Controls.Add(this.rbJP);
+            this.Controls.Add(this.rbIT);
+            this.Controls.Add(this.btfav);
             this.Controls.Add(this.wbBrower);
             this.Controls.Add(this.lbRssTitle);
             this.Controls.Add(this.btGet);
@@ -92,6 +154,11 @@ namespace RssReader {
         private System.Windows.Forms.Button btGet;
         private System.Windows.Forms.ListBox lbRssTitle;
         private System.Windows.Forms.WebBrowser wbBrower;
+        private System.Windows.Forms.Button btfav;
+        private System.Windows.Forms.RadioButton rbIT;
+        private System.Windows.Forms.RadioButton rbJP;
+        private System.Windows.Forms.RadioButton rbin;
+        private System.Windows.Forms.RadioButton rbeco;
     }
 }
 
