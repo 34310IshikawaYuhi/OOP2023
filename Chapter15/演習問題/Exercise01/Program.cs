@@ -33,13 +33,27 @@ namespace Exercise01 {
 
         private static void Exercise1_3() {
             var books = Library.Books.GroupBy(b => b.PublishedYear).OrderBy(group=>group.Key);
-            foreach (var g in books) {
-                Console.WriteLine($"{g.Key}年:{g.Count()}");
+            foreach (var book in books) {
+                Console.WriteLine($"{book.Key}年:{book.Count()}");
             }
         }
 
         private static void Exercise1_4() {
-            
+            var books = Library.Books.OrderByDescending(b => b.PublishedYear)
+                                    .ThenByDescending(p => p.Price)
+                                    .Join(Library.Categories,
+                                            book=>book.CategoryId,
+                                            category=>category.Id,
+                                            (book,category)=>new {
+                                            Category = category.Name,
+                                            Title = book.Title,
+                                            Price = book.Price,
+                                            PublishedYear = book.PublishedYear
+                                            }
+                                     );
+            foreach (var book in books) {
+                Console.WriteLine("{0}年 {1}円 {2}({3})", book.PublishedYear, book.Price, book.Title,book.Category);
+            }
         }
 
         private static void Exercise1_5() {
