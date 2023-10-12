@@ -45,10 +45,10 @@ namespace Exercise01 {
                                             book=>book.CategoryId,
                                             category=>category.Id,
                                             (book,category)=>new {
-                                            Category = category.Name,
-                                            Title = book.Title,
-                                            Price = book.Price,
-                                            PublishedYear = book.PublishedYear
+                                                Category = category.Name,
+                                                Title = book.Title,
+                                                Price = book.Price,
+                                                PublishedYear = book.PublishedYear
                                             }
                                      );
             foreach (var book in books) {
@@ -69,7 +69,22 @@ namespace Exercise01 {
         }
 
         private static void Exercise1_6() {
-
+            var groups = Library.Books.Join(Library.Categories,
+                                          book => book.CategoryId,
+                                          category => category.Id,
+                                          (book, category) => new {
+                                              Category = category.Name,
+                                              Title = book.Title
+                                          })
+                                     .GroupBy(g=>g.Category)
+                                     .OrderBy(b=>b.Key);
+            foreach (var name in groups) {
+                Console.WriteLine("#{0}",name.Key);
+                foreach (var book in name) {
+                    Console.WriteLine(" {0}",book.Title);
+                }
+            }
+                                     
         }
 
         private static void Exercise1_7() {
