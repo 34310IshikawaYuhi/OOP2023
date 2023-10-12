@@ -75,7 +75,8 @@ namespace Exercise01 {
                                           (book, category) => new {
                                               Category = category.Name,
                                               Title = book.Title
-                                          })
+                                          }
+                                      )
                                      .GroupBy(g=>g.Category)
                                      .OrderBy(b=>b.Key);
             foreach (var name in groups) {
@@ -88,7 +89,25 @@ namespace Exercise01 {
         }
 
         private static void Exercise1_7() {
-
+            var group = Library.Books.Join(Library.Categories,
+                                          book => book.CategoryId,
+                                          category => category.Id,
+                                          (book, category) => new {
+                                              Category = category.Name,
+                                              Title = book.Title,
+                                              PublishedYear = book.PublishedYear
+                                          }
+                                      )
+                                      .GroupBy(g => new { g.Category, g.PublishedYear })
+                                      .OrderBy(n=>n.Key.PublishedYear)
+                                      .Where(b => b.Key.Category.Equals("Development"));
+                                     
+            foreach (var g in group) {
+                Console.WriteLine("#{0}", g.Key.PublishedYear);
+                foreach (var book in g) {
+                    Console.WriteLine(" {0}", book.Title);
+                }
+            }
         }
 
         private static void Exercise1_8() {
