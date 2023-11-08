@@ -33,6 +33,11 @@ namespace RssReader {
             this.rbJP = new System.Windows.Forms.RadioButton();
             this.rbin = new System.Windows.Forms.RadioButton();
             this.rbeco = new System.Windows.Forms.RadioButton();
+            this.tbfavName = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.favUrl = new System.Windows.Forms.Label();
+            this.tbfavUrl = new System.Windows.Forms.TextBox();
+            this.favList = new System.Windows.Forms.ListBox();
             this.SuspendLayout();
             // 
             // tbUrl
@@ -70,61 +75,108 @@ namespace RssReader {
             this.wbBrower.MinimumSize = new System.Drawing.Size(20, 20);
             this.wbBrower.Name = "wbBrower";
             this.wbBrower.ScriptErrorsSuppressed = true;
-            this.wbBrower.Size = new System.Drawing.Size(681, 543);
+            this.wbBrower.Size = new System.Drawing.Size(600, 543);
             this.wbBrower.TabIndex = 3;
             // 
             // btfav
             // 
-            this.btfav.Location = new System.Drawing.Point(922, 28);
+            this.btfav.Location = new System.Drawing.Point(942, 259);
             this.btfav.Name = "btfav";
             this.btfav.Size = new System.Drawing.Size(75, 31);
             this.btfav.TabIndex = 4;
             this.btfav.Text = "登録";
             this.btfav.UseVisualStyleBackColor = true;
+            this.btfav.Click += new System.EventHandler(this.btfav_Click);
             // 
             // rbIT
             // 
             this.rbIT.AutoSize = true;
-            this.rbIT.Location = new System.Drawing.Point(922, 66);
+            this.rbIT.Location = new System.Drawing.Point(829, 65);
             this.rbIT.Name = "rbIT";
             this.rbIT.Size = new System.Drawing.Size(33, 16);
             this.rbIT.TabIndex = 5;
             this.rbIT.TabStop = true;
             this.rbIT.Text = "IT";
             this.rbIT.UseVisualStyleBackColor = true;
+            this.rbIT.CheckedChanged += new System.EventHandler(this.rbIT_CheckedChanged);
             // 
             // rbJP
             // 
             this.rbJP.AutoSize = true;
-            this.rbJP.Location = new System.Drawing.Point(922, 89);
+            this.rbJP.Location = new System.Drawing.Point(879, 65);
             this.rbJP.Name = "rbJP";
             this.rbJP.Size = new System.Drawing.Size(47, 16);
             this.rbJP.TabIndex = 6;
             this.rbJP.TabStop = true;
             this.rbJP.Text = "国内";
             this.rbJP.UseVisualStyleBackColor = true;
+            this.rbJP.CheckedChanged += new System.EventHandler(this.rbJP_CheckedChanged);
             // 
             // rbin
             // 
             this.rbin.AutoSize = true;
-            this.rbin.Location = new System.Drawing.Point(922, 112);
+            this.rbin.Location = new System.Drawing.Point(829, 87);
             this.rbin.Name = "rbin";
             this.rbin.Size = new System.Drawing.Size(47, 16);
             this.rbin.TabIndex = 7;
             this.rbin.TabStop = true;
             this.rbin.Text = "国際";
             this.rbin.UseVisualStyleBackColor = true;
+            this.rbin.CheckedChanged += new System.EventHandler(this.rbin_CheckedChanged);
             // 
             // rbeco
             // 
             this.rbeco.AutoSize = true;
-            this.rbeco.Location = new System.Drawing.Point(922, 135);
+            this.rbeco.Location = new System.Drawing.Point(879, 87);
             this.rbeco.Name = "rbeco";
             this.rbeco.Size = new System.Drawing.Size(47, 16);
             this.rbeco.TabIndex = 8;
             this.rbeco.TabStop = true;
             this.rbeco.Text = "経済";
             this.rbeco.UseVisualStyleBackColor = true;
+            this.rbeco.CheckedChanged += new System.EventHandler(this.rbeco_CheckedChanged);
+            // 
+            // tbfavName
+            // 
+            this.tbfavName.Location = new System.Drawing.Point(871, 209);
+            this.tbfavName.Name = "tbfavName";
+            this.tbfavName.Size = new System.Drawing.Size(146, 19);
+            this.tbfavName.TabIndex = 9;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(829, 216);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(31, 12);
+            this.label1.TabIndex = 10;
+            this.label1.Text = "名前:";
+            // 
+            // favUrl
+            // 
+            this.favUrl.AutoSize = true;
+            this.favUrl.Location = new System.Drawing.Point(829, 241);
+            this.favUrl.Name = "favUrl";
+            this.favUrl.Size = new System.Drawing.Size(29, 12);
+            this.favUrl.TabIndex = 11;
+            this.favUrl.Text = "URL:";
+            // 
+            // tbfavUrl
+            // 
+            this.tbfavUrl.Location = new System.Drawing.Point(871, 234);
+            this.tbfavUrl.Name = "tbfavUrl";
+            this.tbfavUrl.Size = new System.Drawing.Size(146, 19);
+            this.tbfavUrl.TabIndex = 12;
+            // 
+            // favList
+            // 
+            this.favList.FormattingEnabled = true;
+            this.favList.ItemHeight = 12;
+            this.favList.Location = new System.Drawing.Point(871, 296);
+            this.favList.Name = "favList";
+            this.favList.Size = new System.Drawing.Size(146, 292);
+            this.favList.TabIndex = 13;
+            this.favList.SelectedIndexChanged += new System.EventHandler(this.favList_SelectedIndexChanged);
             // 
             // Form1
             // 
@@ -132,6 +184,11 @@ namespace RssReader {
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.ClientSize = new System.Drawing.Size(1043, 620);
+            this.Controls.Add(this.favList);
+            this.Controls.Add(this.tbfavUrl);
+            this.Controls.Add(this.favUrl);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.tbfavName);
             this.Controls.Add(this.rbeco);
             this.Controls.Add(this.rbin);
             this.Controls.Add(this.rbJP);
@@ -159,6 +216,11 @@ namespace RssReader {
         private System.Windows.Forms.RadioButton rbJP;
         private System.Windows.Forms.RadioButton rbin;
         private System.Windows.Forms.RadioButton rbeco;
+        private System.Windows.Forms.TextBox tbfavName;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label favUrl;
+        private System.Windows.Forms.TextBox tbfavUrl;
+        private System.Windows.Forms.ListBox favList;
     }
 }
 

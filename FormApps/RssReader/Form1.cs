@@ -52,9 +52,36 @@ namespace RssReader {
             wbBrower.Navigate(ItemDatas[index].Link);
             
         }
-        private void setSelectedRss() {
+        private void rbIT_CheckedChanged(object sender, EventArgs e) {
+            tbUrl.Text = "https://news.yahoo.co.jp/rss/topics/it.xml";
+        }
+
+        private void rbJP_CheckedChanged(object sender, EventArgs e) {
+            tbUrl.Text = "https://news.yahoo.co.jp/rss/topics/domestic.xml";
+        }
+
+        private void rbin_CheckedChanged(object sender, EventArgs e) {
+            tbUrl.Text = "https://news.yahoo.co.jp/rss/topics/world.xml";
+        }
+
+        private void rbeco_CheckedChanged(object sender, EventArgs e) {
+            tbUrl.Text = "https://news.yahoo.co.jp/rss/topics/business.xml";
+        }
+
+        private void btfav_Click(object sender, EventArgs e) {
+            tbfavName.Text = "";
+            tbfavUrl.Text = "";
+            if (tbfavName.Text.Equals("")|| tbfavUrl.Text.Equals(""))
+                return;
+
 
         }
 
+        private void favList_SelectedIndexChanged(object sender, EventArgs e) {
+            var num = favList.SelectedIndex;
+            if (favList.SelectedIndex == -1) 
+                return;
+            tbUrl.Text = favList.SelectedItems.ToString();
+        }
     }
 }
