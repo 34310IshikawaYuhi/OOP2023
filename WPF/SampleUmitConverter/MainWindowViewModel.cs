@@ -10,7 +10,7 @@ namespace SampleUmitConverter {
     public class MainWindowViewModel : ViewModel{
         private double metricValue, imperialValue;
 
-        public  double MetricValue {
+        public  double GrumValue {
             get { return this.metricValue; }
             set {
                 this.metricValue = value;
@@ -18,7 +18,7 @@ namespace SampleUmitConverter {
             }
         }
 
-        public double ImperialValue {
+        public double PoundValue {
             get { return this.imperialValue; }
             set {
                 this.imperialValue = value;
@@ -27,10 +27,10 @@ namespace SampleUmitConverter {
         }
 
         //上のComboBoxで選択されている値（単位）
-        public MetricUnit CurrentMetricUnit { get; set; }
+        public GrumUnit CurrentMetricUnit { get; set; }
 
         //下のComboBoxで選択されている値（単位）
-        public ImperialUnit CurrentImperialUnit { get; set; }
+        public PoundUnit CurrentImperialUnit { get; set; }
 
         //▲ボタンで呼ばれるコマンド
         public ICommand ImperialUnitToMetric { get; private set; }
@@ -40,15 +40,15 @@ namespace SampleUmitConverter {
 
         //コンストラクタ
         public MainWindowViewModel() {
-            this.CurrentMetricUnit = MetricUnit.Units.First();
-            this.CurrentImperialUnit = ImperialUnit.Units.First();
+            this.CurrentMetricUnit = GrumUnit.Units.First();
+            this.CurrentImperialUnit = PoundUnit.Units.First();
 
             this.MetricToImperialUnit = new DelegateCommand(
-                () => this.ImperialValue = this.CurrentImperialUnit.FromMetricUnit(
-                    this.CurrentMetricUnit, this.MetricValue));
+                () => this.PoundValue = this.CurrentImperialUnit.FromGrumUnit(
+                    this.CurrentMetricUnit, this.GrumValue));
 
             this.ImperialUnitToMetric = new DelegateCommand(
-                () => this.MetricValue = this.CurrentMetricUnit.FromImperialUnit(
+                () => this.GrumValue = this.CurrentMetricUnit.FromPoundUnit(
                     this.CurrentImperialUnit, this.imperialValue));
         }
     }
