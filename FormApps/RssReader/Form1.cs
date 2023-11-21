@@ -79,7 +79,14 @@ namespace RssReader {
 
             }
             else {
-                MessageBox.Show("名前を入力してください");
+                if (tbfavName.Text == "") {
+                    MessageBox.Show("名前を入力してください");
+                }
+                else if (tbfavUrl.Text == "") {
+                    MessageBox.Show("URLを入力してください");
+                }
+
+                
             }
 
         }
