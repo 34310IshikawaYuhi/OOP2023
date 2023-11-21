@@ -6,7 +6,8 @@
         xmlns:local="clr-namespace:ColorChecker"
         xmlns:System="clr-namespace:System;assembly=mscorlib" x:Class="ColorChecker.MainWindow"
         mc:Ignorable="d"
-        Title="MainWindow" Height="300" Width="700">
+        Title="MainWindow" Height="300" Width="700"
+        ResizeMode="NoResize">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
@@ -55,9 +56,9 @@
         <Grid Grid.Column="2" VerticalAlignment="Stretch">
             <Button x:Name="stockButton" Content="STOCK" VerticalAlignment="Top"
                     Width="211" Height="56" Margin="10,10,10,0" Click="stockButton_Click" />
-            <ListBox x:Name="stockList" HorizontalAlignment="Left" Height="188" Margin="10,71,0,0" VerticalAlignment="Top" Width="211"/>
+            <ListBox x:Name="stockList" HorizontalAlignment="Left" Height="188" Margin="10,71,0,0" VerticalAlignment="Top" Width="211" SelectionChanged="stockList_SelectionChanged"/>
         </Grid>
-        <Label x:Name="ColorArea" Margin="14" Background="#FFF1FBFB"/>
+        <Label x:Name="ColorArea" Margin="15" Background="AliceBlue"/>
 
     </Grid>
 </Window>

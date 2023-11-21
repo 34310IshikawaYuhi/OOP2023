@@ -1,6 +1,6 @@
 ﻿
 namespace RssReader {
-    partial class Form1 {
+    partial class RssReader {
         /// <summary>
         /// 必要なデザイナー変数です。
         /// </summary>
@@ -35,9 +35,9 @@ namespace RssReader {
             this.rbeco = new System.Windows.Forms.RadioButton();
             this.tbfavName = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.favList = new System.Windows.Forms.ListBox();
             this.favUrl = new System.Windows.Forms.Label();
             this.tbfavUrl = new System.Windows.Forms.TextBox();
-            this.favList = new System.Windows.Forms.ListBox();
             this.SuspendLayout();
             // 
             // tbUrl
@@ -138,7 +138,7 @@ namespace RssReader {
             // 
             // tbfavName
             // 
-            this.tbfavName.Location = new System.Drawing.Point(871, 209);
+            this.tbfavName.Location = new System.Drawing.Point(871, 213);
             this.tbfavName.Name = "tbfavName";
             this.tbfavName.Size = new System.Drawing.Size(146, 19);
             this.tbfavName.TabIndex = 9;
@@ -152,22 +152,6 @@ namespace RssReader {
             this.label1.TabIndex = 10;
             this.label1.Text = "名前:";
             // 
-            // favUrl
-            // 
-            this.favUrl.AutoSize = true;
-            this.favUrl.Location = new System.Drawing.Point(829, 241);
-            this.favUrl.Name = "favUrl";
-            this.favUrl.Size = new System.Drawing.Size(29, 12);
-            this.favUrl.TabIndex = 11;
-            this.favUrl.Text = "URL:";
-            // 
-            // tbfavUrl
-            // 
-            this.tbfavUrl.Location = new System.Drawing.Point(871, 234);
-            this.tbfavUrl.Name = "tbfavUrl";
-            this.tbfavUrl.Size = new System.Drawing.Size(146, 19);
-            this.tbfavUrl.TabIndex = 12;
-            // 
             // favList
             // 
             this.favList.FormattingEnabled = true;
@@ -178,7 +162,23 @@ namespace RssReader {
             this.favList.TabIndex = 13;
             this.favList.SelectedIndexChanged += new System.EventHandler(this.favList_SelectedIndexChanged);
             // 
-            // Form1
+            // favUrl
+            // 
+            this.favUrl.AutoSize = true;
+            this.favUrl.Location = new System.Drawing.Point(829, 241);
+            this.favUrl.Name = "favUrl";
+            this.favUrl.Size = new System.Drawing.Size(27, 12);
+            this.favUrl.TabIndex = 11;
+            this.favUrl.Text = "Rss:";
+            // 
+            // tbfavUrl
+            // 
+            this.tbfavUrl.Location = new System.Drawing.Point(871, 234);
+            this.tbfavUrl.Name = "tbfavUrl";
+            this.tbfavUrl.Size = new System.Drawing.Size(146, 19);
+            this.tbfavUrl.TabIndex = 12;
+            // 
+            // RssReader
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -198,8 +198,10 @@ namespace RssReader {
             this.Controls.Add(this.lbRssTitle);
             this.Controls.Add(this.btGet);
             this.Controls.Add(this.tbUrl);
-            this.Name = "Form1";
-            this.Text = "Form1";
+            this.MaximumSize = new System.Drawing.Size(1059, 659);
+            this.MinimumSize = new System.Drawing.Size(1059, 659);
+            this.Name = "RssReader";
+            this.Text = "RssReader";
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -218,9 +220,9 @@ namespace RssReader {
         private System.Windows.Forms.RadioButton rbeco;
         private System.Windows.Forms.TextBox tbfavName;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.ListBox favList;
         private System.Windows.Forms.Label favUrl;
         private System.Windows.Forms.TextBox tbfavUrl;
-        private System.Windows.Forms.ListBox favList;
     }
 }
 

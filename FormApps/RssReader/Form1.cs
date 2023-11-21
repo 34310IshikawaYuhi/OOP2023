@@ -12,16 +12,17 @@ using System.Windows.Forms;
 using System.Xml.Linq;
 
 namespace RssReader {
-    public partial class Form1 : Form {
+    public partial class RssReader : Form {
 
         List<ItemData> ItemDatas = new List<ItemData>();
+        List<string> favUrlList = new List<string>();
 
-        public Form1() {
+        public RssReader() {
             InitializeComponent();
         }
 
         private void btGet_Click(object sender, EventArgs e) {
-            if (tbUrl.Text =="")
+            if (tbUrl.Text == "")
                 return;
 
             lbRssTitle.Items.Clear();
@@ -37,20 +38,20 @@ namespace RssReader {
                                      }).ToList();
 
                 foreach (var node in ItemDatas) {
-                   
+
                     lbRssTitle.Items.Add(node.Title);
                 }
-                
+
             }
         }
 
         private void lbRssTitle_SelectedIndexChanged(object sender, EventArgs e) {
-            if (lbRssTitle.SelectedIndex == -1) 
+            if (lbRssTitle.SelectedIndex == -1)
                 return;
 
             var index = lbRssTitle.SelectedIndex;
             wbBrower.Navigate(ItemDatas[index].Link);
-            
+
         }
         private void rbIT_CheckedChanged(object sender, EventArgs e) {
             tbUrl.Text = "https://news.yahoo.co.jp/rss/topics/it.xml";
@@ -69,19 +70,23 @@ namespace RssReader {
         }
 
         private void btfav_Click(object sender, EventArgs e) {
-            tbfavName.Text = "";
-            tbfavUrl.Text = "";
-            if (tbfavName.Text.Equals("")|| tbfavUrl.Text.Equals(""))
-                return;
-
+            //tbfavName.Text = "";
+            //tbfavUrl.Text = "";
+            if (tbfavName.Text != "" && tbfavUrl.Text != "") {
+                favList.Items.Insert(0, tbfavName.Text);
+                favUrlList.Insert(0,tbfavUrl.Text);
+            }
+            else {
+                MessageBox.Show("名前を入力してください");
+            }
 
         }
 
         private void favList_SelectedIndexChanged(object sender, EventArgs e) {
             var num = favList.SelectedIndex;
-            if (favList.SelectedIndex == -1) 
+            if (favList.SelectedIndex == -1)
                 return;
-            tbUrl.Text = favList.SelectedItems.ToString();
+            tbUrl.Text = favUrlList[favList.SelectedIndex];
         }
     }
 }
