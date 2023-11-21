@@ -70,11 +70,13 @@ namespace RssReader {
         }
 
         private void btfav_Click(object sender, EventArgs e) {
-            //tbfavName.Text = "";
-            //tbfavUrl.Text = "";
             if (tbfavName.Text != "" && tbfavUrl.Text != "") {
                 favList.Items.Insert(0, tbfavName.Text);
                 favUrlList.Insert(0,tbfavUrl.Text);
+
+                tbfavUrl.Text = "";
+                tbfavName.Text = "";
+
             }
             else {
                 MessageBox.Show("名前を入力してください");
